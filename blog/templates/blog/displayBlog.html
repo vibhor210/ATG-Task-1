@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ blog.category }}{% endblock %}
+{% block extra_head %}
+<style>
+    @media screen and (max-width: 600px) {
+        img{
+            width: 100vw !important;
+        }
+    }
+</style>
+{% endblock %}
+{% block body %}
+<h1 style="margin-top:1rem">{{ blog.title }}</h1>
+<img src="{{ blog.image.url }}" alt="img" class="rounded mx-auto d-block my-3" width="500" height="300">
+<div class="p-3">
+    <p>
+        {{ blog.content }}
+    </p>
+</div>
+{% endblock %}

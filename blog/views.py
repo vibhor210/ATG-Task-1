@@ -35,7 +35,6 @@ def blogs(request):
         getBlogs = blog.objects.filter(draft=0)
     else:
         getBlogs = blog.objects.filter(author=request.user)
-    # summary = count_word(getBlogs)
     context = {"blogs":getBlogs}
     return render(request,"blog/blog.html",context)
 
@@ -44,12 +43,3 @@ def displayBlog(request,pk):
     blogs = blog.objects.get(id=pk)
     context = {"blog":blogs}
     return render(request,"blog/displayBlog.html",context)
-
-# def count_word(sentences):
-#     Summary = []
-#     for sentence in sentences:
-#         sentence = " ".join(sentence.summary.split())
-#         words = sentence.count(" ")
-#         words = words+1
-#         Summary.append(sentence)
-#     return Summary

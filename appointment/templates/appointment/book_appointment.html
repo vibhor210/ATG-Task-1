@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% block title %}Book Appointment{% endblock %}
+
+{% block body %}
+<div class="card w-50">
+    <div class="card-header">
+        <h3 class="card-title">Appointment of Dr. {{doctor}}</h3>
+    </div>
+    <div class="card-body">
+        {{ form.errors }}
+            <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-floating my-3">
+                {% render_field form.speciality type="text" class="form-control" id="floatingInput" placeholder="Required Speciality" %}
+                <label for="floatingInput">Required Speciality</label>
+            </div>
+            <div class="row g-2 mb-3">
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        {% render_field form.date type='date' class="form-control" id='datepicker' placeholder="Date of Appointment" %}
+                        <label for="datepicker">Date of Appointment</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        {% render_field form.start_time type='time' class="form-control" id='datepicker' placeholder="Starting Time" %}
+                        <label for="datepicker">Starting Time</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary">Book</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

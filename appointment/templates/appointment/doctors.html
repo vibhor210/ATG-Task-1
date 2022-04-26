@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctors{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for doctor in doctor_list %}
+        <div class="col">
+            <div class="card">
+                <img src="{{doctor.1.url}}" alt="" class="rounded mx-auto d-block mt-3"  width="150" height="150">
+                <div class="card-body">
+                    <h3 class="card-title">{{doctor.0}}</h3>
+                    <a class="btn btn-primary" href="{% url 'BookAppointment' doctor.2 %}">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

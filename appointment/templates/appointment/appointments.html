@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Appointments{% endblock %}
+
+{% block body %}
+<br><br><br>
+<div class="card w-50">
+    <div class="card-header">
+        <h3 class="card-title">Appointment</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-5">Doctor Name</dt>
+            <dd class="col-sm-5">{{name}}</dd>
+            <dt class="col-sm-5">Appointment Date</dt>
+            <dd class="col-sm-5">{{date}}</dd>
+            <dt class="col-sm-5">Appointment Start Time</dt>
+            <dd class="col-sm-5">{{s_time}}</dd>
+            <dt class="col-sm-5">Appointment End Time</dt>
+            <dd class="col-sm-5">{{e_time}}</dd>
+        </dl>
+    </div>
+</div>
+{% endblock %}

@@ -3,24 +3,27 @@
 {% block title %}Blogs{% endblock %}
 
 {% block body %}
-<div class="row row-cols-1 row-cols-md-3">
-    {% if blogs %}
-    {% for blog in blogs %}
-    <div class="col">
-        <div class="card">
-            <img class="rounded mx-auto d-block mt-3" alt="Profile Picture" width="150" height="150" src="{{ blog.image.url }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ blog.title }}</h5>
-                <p class="card-text" id="summary">{{ blog.summary | truncatewords:15 }}</p>
-                <a href="{% url 'DisplayBlog' blog.id %}" class="btn btn-primary">Read More</a>
+<div class="container">
+    <div class="row  row-cols-1 row-cols-md-3 g-4">
+        {% if blogs %}
+        {% for blog in blogs %}
+        <div class="col">
+            <div class="card">
+                <img class="rounded mx-auto d-block mt-3" alt="Profile Picture" width="150" height="150" src="{{ blog.image.url }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ blog.title }}</h5>
+                    <p class="card-text" id="summary">{{ blog.summary | truncatewords:15 }}</p>
+                    <a href="{% url 'DisplayBlog' blog.id %}" class="btn btn-primary">Read More</a>
+                </div>
             </div>
         </div>
+        {% endfor %}
+        {% else %}
+        <h3>No Blogs to display!</h3>
+        {% endif %}
     </div>
-    {% endfor %}
-    {% else %}
-    <h3>No Blogs to display!</h3>
-    {% endif %}
 </div>
+
 <script>
 
 </script>
